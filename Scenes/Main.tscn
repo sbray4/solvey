@@ -1,12 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://c61q04ltjst3e"]
+[gd_scene load_steps=17 format=3 uid="uid://c61q04ltjst3e"]
 
 [ext_resource type="PackedScene" uid="uid://b2pduacqa5chb" path="res://Scenes/floor_button.tscn" id="1_elu03"]
-[ext_resource type="PackedScene" uid="uid://chu3w3ioc6jvo" path="res://Scenes/characters/MainCharacter.tscn" id="1_jhwud"]
+[ext_resource type="PackedScene" uid="uid://chu3w3ioc6jvo" path="res://scenes/characters/MainCharacter.tscn" id="1_jhwud"]
 [ext_resource type="Script" path="res://scripts/MainCharacter.gd" id="2_40c37"]
 [ext_resource type="PackedScene" uid="uid://phewxkylqnso" path="res://Scenes/door.tscn" id="2_wbrql"]
 [ext_resource type="PackedScene" uid="uid://bfui2hjydd0i0" path="res://Scenes/OceanMap.tscn" id="3_5qnfl"]
 [ext_resource type="PackedScene" uid="uid://c1kc5aw3squq" path="res://Scenes/and_gate.tscn" id="5_eprmo"]
 [ext_resource type="PackedScene" uid="uid://dl6litnlhpi6y" path="res://Scenes/timed_button.tscn" id="6_qblcy"]
+[ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="8_i62dr"]
+[ext_resource type="Material" uid="uid://cvex6toty8yn7" path="res://addons/func_godot/textures/default_material.tres" id="9_1c6yr"]
+[ext_resource type="Resource" uid="uid://cnp7364vdapwv" path="res://entities/solvey_fgd.tres" id="10_qy2ce"]
+[ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map_settings.gd" id="11_de31q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_knu02"]
 size = Vector3(22, 1, 33)
@@ -17,6 +21,33 @@ size = Vector3(22, 1, 33)
 [sub_resource type="SphereShape3D" id="SphereShape3D_5m4hp"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_8hiu5"]
+
+[sub_resource type="Resource" id="Resource_p0c7c"]
+script = ExtResource("11_de31q")
+inverse_scale_factor = 32.0
+entity_fgd = ExtResource("10_qy2ce")
+entity_name_property = ""
+base_texture_dir = "res://assets/textures"
+texture_file_extensions = Array[String](["png", "jpg", "jpeg", "bmp", "tga", "webp"])
+clip_texture = "special/clip"
+skip_texture = "special/skip"
+origin_texture = "special/origin"
+texture_wads = Array[Resource]([])
+material_file_extension = "tres"
+default_material = ExtResource("9_1c6yr")
+default_material_albedo_uniform = ""
+albedo_map_pattern = "%s_albedo.%s"
+normal_map_pattern = "%s_normal.%s"
+metallic_map_pattern = "%s_metallic.%s"
+roughness_map_pattern = "%s_roughness.%s"
+emission_map_pattern = "%s_emission.%s"
+ao_map_pattern = "%s_ao.%s"
+height_map_pattern = "%s_height.%s"
+orm_map_pattern = "%s_orm.%s"
+unshaded = false
+save_generated_materials = true
+uv_unwrap_texel_size = 2.0
+use_trenchbroom_groups_hierarchy = false
 
 [node name="Main" type="Node3D"]
 
@@ -62,3 +93,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.73567, 0.650289, 5.35564)
 [node name="Door" parent="." instance=ExtResource("2_wbrql")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.48734, 1, 2)
 connected_button = NodePath("../ANDGate")
+
+[node name="FuncGodotMap" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -10)
+script = ExtResource("8_i62dr")
+map_settings = SubResource("Resource_p0c7c")

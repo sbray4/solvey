@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="FuncGodotFGDFile" load_steps=3 format=3 uid="uid://cnp7364vdapwv"]
+[gd_resource type="Resource" script_class="FuncGodotFGDFile" load_steps=4 format=3 uid="uid://cnp7364vdapwv"]
 
 [ext_resource type="Script" path="res://addons/func_godot/src/fgd/func_godot_fgd_file.gd" id="1_g670y"]
 [ext_resource type="Resource" uid="uid://crgpdahjaj" path="res://addons/func_godot/fgd/func_godot_fgd.tres" id="1_nqdig"]
+[ext_resource type="Resource" uid="uid://da2kwlqumgdep" path="res://entities/FuncDoor.tres" id="2_8j7ci"]
 
 [resource]
 script = ExtResource("1_g670y")
@@ -9,4 +10,4 @@ export_file = false
 target_map_editor = 1
 fgd_name = "SolveyFGD"
 base_fgd_files = Array[Resource]([ExtResource("1_nqdig")])
-entity_definitions = Array[Resource]([])
+entity_definitions = Array[Resource]([ExtResource("2_8j7ci")])
