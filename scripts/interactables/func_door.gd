@@ -39,13 +39,14 @@ func _physics_process(delta: float) -> void:
 func _init() -> void:
 	rotation = Vector3.ZERO
 	closed = true
-	limit = max_rotation
+
+func _ready() -> void:
+	if Engine.is_editor_hint():
+		return
 	
 	if max_rotation < 0:
 		rotation_dir = -1
 	else:
 		rotation_dir = 1
-
-func _ready() -> void:
-	if Engine.is_editor_hint():
-		return
+	
+	limit = max_rotation
