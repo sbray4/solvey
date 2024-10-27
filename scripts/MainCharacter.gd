@@ -32,6 +32,7 @@ func _input(event: InputEvent) -> void:
 		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-89), deg_to_rad(89))
 
 
+
 func _physics_process(delta: float) -> void:
 	
 	# When the player presses the "interact" button
